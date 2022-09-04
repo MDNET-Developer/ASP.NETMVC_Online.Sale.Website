@@ -1,0 +1,60 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<Musteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MusteriMainLayout.cshtml";
+}
+<div>
+
+
+
+    <br />
+    @foreach (var m in Model)
+    {
+        <div style=" display:flex;justify-content:center;text-align:center">
+            <br />
+            <div style="display:flex; flex-direction:column;justify-content:center;">
+                <div style="width:5cm; height:5cm;border-radius:100%;border:1px solid silver;background-color:silver;margin-left:33px">
+                    <img style="width:5cm; height:5cm; border-radius:100%;transform:scale(0.9)" src=" @m.Musterifoto" />
+                </div>
+                <div>
+                    <h1>@m.MusteriAd @m.MusteriSoyad</h1>
+                </div>
+                <div>
+                    <img src="~/ICONS/mail_20px.png" /><span style="color:#7f8c8d">@m.MusteriMail</span>
+                </div>
+                <div>
+
+                    <img src="~/ICONS/location_20px.png" /> <span style="color:#7f8c8d">@m.MusteriSeher</span>
+                </div>
+            </div>
+
+        </div>
+
+    }
+    <br />
+    <br />
+    <Div style=" display:flex;justify-content:center">
+        <div style="display:flex;" id="statiska">
+            <div style="text-align:center;margin-right:70px">
+                <strong>22</strong>
+                <p>Ümumi sifariş sayı</p>
+            </div>
+            <div style="text-align:center;margin-right:70px">
+                <strong>350</strong>
+                <p>Ümumi xərc</p>
+            </div>
+            <div style="text-align:center;margin-right:70px">
+                <strong>22</strong>
+                <p>Yeni mesajlar</p>
+            </div>
+        </div>
+
+    </Div>
+    <br />
+    <div style=" display:flex;justify-content:center">
+        <button style="width:7cm" class="btn btn-primary">Parametrlər</button>
+    </div>
+    <hr />
+    @Html.Action("MehsullarFotoPartial","MusteriPanel")
+</div>

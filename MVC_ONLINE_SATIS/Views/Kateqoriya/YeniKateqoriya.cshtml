@@ -1,0 +1,18 @@
+﻿@model MVC_ONLINE_SATIS.Models.Sinifler.Kateqoriya
+@{
+    ViewBag.Title = "YeniKateqoriya";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<div class="container-fluid">
+    <h2>Yeni Kateqoriya</h2>
+    @using (Html.BeginForm("YeniKateqoriya", "Kateqoriya", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.KateqoriyaID)
+        @Html.TextBoxFor(x => x.KateqoriyaAd, new { @class ="form-control" })
+        <Button class="btn" style="transform:scale(0.5)"><img src="~/ICONS/ok_100px.png" /></Button>
+
+    }
+</div>
+
+

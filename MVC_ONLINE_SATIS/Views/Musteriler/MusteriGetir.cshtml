@@ -1,0 +1,29 @@
+﻿@model MVC_ONLINE_SATIS.Models.Sinifler.Musteriler
+@{
+    ViewBag.Title = "MusteriGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <br />
+    <h2>Yeni Müştəri</h2>
+    <hr />
+    @using (Html.BeginForm("UpdateBTN", "Musteriler", FormMethod.Post))
+    {
+        @Html.HiddenFor(x=>x.MusteriID)
+        @Html.TextBoxFor(x => x.MusteriAd, new { @class = "form-control", Placeholder = "Müştəri ad" })
+        <div class="alert-danger">
+            @Html.ValidationMessageFor(x => x.MusteriAd, "")
+        </div>
+        <br />
+        @Html.TextBoxFor(x => x.MusteriSoyad, new { @class = "form-control", Placeholder = "Müştəri soyad" })
+        <br />
+        @Html.TextBoxFor(x => x.MusteriSeher, new { @class = "form-control", Placeholder = "Şəhər" })
+        <br />
+        @Html.TextBoxFor(x => x.MusteriMail, new { @class = "form-control", Placeholder = "Mail" })
+        <br />
+        @Html.TextBoxFor(x => x.Veziyyet, new { @class = "form-control", Placeholder = "Veziyyət" })
+
+        <button class="btn"> <img src="~/ICONS/update_50px.png" /></button>
+    }
+</div>
+

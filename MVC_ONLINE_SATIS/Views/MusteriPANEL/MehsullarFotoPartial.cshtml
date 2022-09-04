@@ -1,0 +1,44 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<SatisHereket>
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2%;
+    }
+
+    .square {
+        aspect-ratio: 1/ 1;
+        display: flex;
+        align-items: center;
+        padding: 5%;
+    
+        color: #fff;
+    }
+        .square:hover {
+            transition: 0.5s;
+            transform:scale(0.99);
+            box-shadow: 0 0 5px black;
+        }
+        .square img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .square.fullImg {
+            padding: 0;
+        }
+
+            .square.fullImg img {
+                object-fit: cover;
+            }
+</style>
+<div class="grid">
+    @foreach (var m in Model)
+    {
+        <div class="square"><img src="@m.Mehsullars.MehsulFoto" /></div>
+    }
+
+</div>

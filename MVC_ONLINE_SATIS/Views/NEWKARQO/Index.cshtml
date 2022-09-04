@@ -1,0 +1,48 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<KARQO>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<meta http-equiv="refresh" content="30">
+<div style="display:flex">
+    <h2>Karqolar</h2> <a href="/NEWKARQO/YeniKarqo/" class="btn">
+        <img src="~/ICONS/add_40px.png" />
+    </a>
+</div>
+<hr />
+<input type="color" />
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Açıqlama</th>
+                <th scope="col">Seria nömrəsi</th>
+                <th scope="col">Karqo təslimatçısı</th>
+                <th scope="col">Alan şəxs</th>
+                <th scope="col">Tarix</th>
+                <th scope="col">Detallar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.Aciqlama</td>
+                    <td>@x.KarqoSERIA</td>
+                    <td>@x.KarqoISCILERI.KarqoIsciAD @x.KarqoISCILERI.KarqoIsciSoyad</td>
+                    <td>@x.Musteriler.MusteriAd @x.Musteriler.MusteriSoyad</td>
+                    <td>@x.Tarix</td>
+                    <td>
+                        <a href="~/NEWKARQO/KarqoDetallar/@x.KarqoSERIA" class="btn btn-warning">
+                            <img src="~/ICONS/track_order_33px.png" />
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+

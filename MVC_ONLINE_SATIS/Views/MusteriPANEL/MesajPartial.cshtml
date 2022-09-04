@@ -1,0 +1,13 @@
+﻿@model MVC_ONLINE_SATIS.Models.Sinifler.Mesajlar
+
+@using (Html.BeginForm("oxudum", "MusteriPanel", FormMethod.Post))
+{
+    @Html.HiddenFor(z => z.MesajID)
+<div>
+    <button style="font-size:20px" class="btn btn-primary" type="submit">
+        <img src="~/ICONS/Read Online_40px.png" /> Oxudum
+    </button>
+</div>
+
+    <br />
+}

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVC_ONLINE_SATIS.Models.Sinifler.SinifGroup>
+<div style="box-shadow:0 0 5px black" class="card">
+    <div style="background-color:#f39c12" class="card-header">
+        <h3 class="card-title">Şəhərlər üzrə müştəri sayı</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Şəhər</th>
+                    <th>Bar</th>
+                    <th style="width: 40px">sayı</th>
+                </tr>
+            </thead>
+            @{ int i = 0;}
+            @foreach (var x in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>@{i++;} @i</td>
+                        <td>@x.Seher</td>
+                        <td>
+                            <div class="progress progress-xs">
+                                @if (x.Say > 1)
+                                {
+                                    <div class="progress-bar progress-bar-danger" style="width: 20%"></div>
+                                }
+                                @if (x.Say > 5)
+                                {
+                                    <div class="progress-bar progress-bar-danger" style="width: 30%"></div>
+                                }
+                                @if (x.Say > 10)
+                                {
+                                    <div class="progress-bar progress-bar-danger" style="width: 40%"></div>
+                                }
+                                @if (x.Say > 20)
+                                {
+                                    <div class="progress-bar progress-bar-danger" style="width: 50%"></div>
+                                }
+                            </div>
+                        </td>
+                        <td><span class="badge bg-danger">@x.Say</span></td>
+                    </tr>
+                </tbody>
+            }
+
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

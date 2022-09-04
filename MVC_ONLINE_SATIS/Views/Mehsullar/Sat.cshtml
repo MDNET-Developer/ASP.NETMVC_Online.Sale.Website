@@ -1,0 +1,100 @@
+﻿@model MVC_ONLINE_SATIS.Models.Sinifler.SatisHereket
+@{
+    ViewBag.Title = "Sat";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<div class="container-fluid">
+    <br />
+    <h2>Satış et</h2>
+    <hr />
+    <div class=" alert-danger">
+        @if (ViewBag.limit == 0)
+        {
+
+            <h3>Diqqət!!! məhsul bitdiyi üçün satış eliyə bilməzsiniz</h3>
+        }
+        else
+        {
+            <h3>Diqqət !!! maksimum @ViewBag.limit ədəd məhsul sifariş verə bilərsiniz</h3>
+        }
+    </div>
+
+    <form method="post">
+        @Html.HiddenFor(X => X.SatisID)
+        <input style="display:none" name="MehsulID" value="@ViewBag.Mehsul_ID" />
+        <br />
+        <div style="background-color:silver;padding:5px">
+            <strong>Məhsul: </strong>
+            <span>@ViewBag.mehsul</span>
+        </div>
+
+        <h5>İşçi</h5>
+        @Html.DropDownListFor(x => x.IsciID, (List<SelectListItem>)ViewBag.isci, new { @class = "form-control" })
+        <h5>Müştəri ID</h5>
+        @Html.TextBoxFor(x => x.MusteriID, new { @class = "form-control", Placeholder = "Müştəri ID" })
+        <br />
+        <a class="btn btn-primary" target="_blank" href="/Musteriler/Index/">Müştərilər</a>
+        <h5>Say</h5>
+        <input id="say" onkeyup="sum();" name="Eded" class="form-control" type="number" max="@ViewBag.limit" />
+        <h5>Qiymeti</h5>
+        <input id="qiymet" onkeyup="sum();" name="Qiymet" class="form-control" type="text" value="@ViewBag.qiymeti" />
+        <h5>Toplam hesab</h5>
+        <input id="umumi" class="form-control" name="UmumiXerc" type="text" />
+        <h5>Satış tarixi</h5>
+
+        @*<input type="date" style="outline:none;border:1px solid silver;background-color:aqua" value="@ViewBag.tarix">*@
+        @*<input type="date" value="2022-07-11">*@
+
+        <script>
+            function sum() {
+                var a = document.getElementById('say').value;
+                var limit = @ViewBag.limit;
+              if (a>@ViewBag.limit) {
+                  document.getElementById('say').value = limit;
+                  swal({
+                      title: "Diqqət",
+                      text: "Sizə təqdim olunan stok sayından çox sifariş eliyə bilməzsiniz !!!",
+                      icon: "warning",
+                      buttons: true,
+                      dangerMode: true,
+                  })
+                      .then((willDelete) => {
+                          if (willDelete) {
+                              swal("Ağıllı olun, hörmətli olun", {
+                                  icon: "success",
+                              });
+                          } else {
+                              swal("Your imaginary file is safe!");
+                          }
+                      });
+                }
+                var b = document.getElementById('qiymet').value;
+
+                var cavab = parseInt(a) * parseInt(b);
+                if (cavab != null) {
+                    document.getElementById('umumi').value = cavab;
+                }
+            }
+        </script>
+        <br />
+
+        <br />
+        @if (ViewBag.limit == 0)
+        {
+            <button id="myP2" class="btn" style="display:@ViewBag.none">
+                <img src="~/ICONS/get_cash_55px.png" />
+            </button>
+
+        }
+        else
+        {
+            <button id="myP2" class="btn" style="display:@ViewBag.block">
+                <img src="~/ICONS/get_cash_55px.png" />
+            </button>
+           
+        }
+
+    </form>
+</div>
+

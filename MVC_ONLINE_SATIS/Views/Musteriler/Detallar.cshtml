@@ -1,0 +1,55 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<SatisHereket>
+@{
+    ViewBag.Title = "Detallar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <br />
+    <h2>Detallar</h2>
+    <hr />
+    <div style="background-color:#383c44;color:snow;border-radius:7px">
+        <div style="padding:10px;font-size:17px">
+
+            <div><img src="~/ICONS/customer_40px.png" />  Müştəri: @ViewBag.musteri </div>
+            <br />
+            <div><img style="transform:scale(0.9)" src="~/ICONS/product_40px.png" />Malların sayı: @ViewBag.mal</div>
+            <hr />
+            <div><a style="Color:snow;" href="/Musteriler/Index/">Müştərilər</a><span style="margin-right:7px;margin-left:7px"> > </span> Detallar</div>
+        </div>
+    </div>
+    <br />
+    <table style="border-radius:7px" class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col"><h6>ID</h6></th>
+                <th scope="col"><h6>Məhsul</h6></th>
+                <th scope="col"><h6>Məhsul Foto</h6></th>
+                <th scope="col"><h6>Sayı</h6></th>
+                <th scope="col"><h6>Qiyməti</h6></th>
+                <th scope="col"><h6>Ümumi məbləğ</h6></th>
+                <th scope="col"><h6>İşçi</h6></th>
+                @*<th scope="col"><h6>Yenilə</h6></th>
+        <th scope="col"><h6>Detallar</h6></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+            <tr>
+                <th>@x.SatisID</th>
+                <td>@x.Mehsullars.MehsulAd / @x.Mehsullars.MehsulAd</td>
+                <td><img style="height:3cm;width:auto" src="@x.Mehsullars.MehsulFoto" /></td>
+                <td>@x.Eded</td>
+                <td>@x.Qiymet</td>
+                <td>@x.UmumiXerc</td>
+                <td>@x.Iscilers.IsciAd @x.Iscilers.IsciSoyad</td>
+             
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

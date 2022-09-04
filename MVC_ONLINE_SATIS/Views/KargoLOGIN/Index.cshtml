@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Karqo</title>
+    
+    <link rel="stylesheet" href="~/stock-signup-form-starter/css/style.css" type="text/css" media="all" /><!-- Style-CSS -->
+    <link href="~/stock-signup-form-starter/css/font-awesome.css" rel="stylesheet"><!-- font-awesome-icons -->
+</head>
+<body>
+    <section class="w3l-form-36">
+        <div class="form-36-mian section-gap">
+            <div class="wrapper">
+                <div class="form-inner-cont">
+                    <h3>Daxil ol</h3>
+                    @using (Html.BeginForm("KarqoisciLOGIN", "KarqoLOGIN", FormMethod.Post))
+                    {
+                       
+                            <div class="form-input">
+                                <span class="fa fa-user-o" aria-hidden="true"></span> <input type="text" name="mail" placeholder="İstifadəçi adı" required />
+                            </div>
+                            <div class="form-input">
+                                <span class="fa fa-key" aria-hidden="true"></span><input type="password" name="sifre" placeholder="Şifrə"
+                                                                                         required />
+                            </div>
+
+                            <div class="login-remember d-grid">
+                                <button class="btn theme-button">Daxil ol</button>
+                                <br />
+                                @*<a class="btn" href="/KargoLOGIN/KarqoProfile">Demo</a>*@
+                            </div>
+                    }
+                    </div>
+                <div class="copy-right">
+                    <p>
+                        © 2022 ASP.NET MVC | Backend developer: Murad Aliyev | Design by <a href="http://w3layouts.com/"                                                            target="_blank">W3Layouts</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

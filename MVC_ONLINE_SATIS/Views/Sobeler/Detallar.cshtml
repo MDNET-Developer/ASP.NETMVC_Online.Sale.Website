@@ -1,0 +1,50 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<Isciler>
+@{
+    ViewBag.Title = "Detallar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <br />
+    <h2>Detallar</h2>
+    <hr />
+    <div style="background-color:#383c44;color:snow;border-radius:7px">
+        <div style="padding:10px;font-size:18.5px">
+
+            <div><img src="~/ICONS/department_40px.png" />  Şöbə: @ViewBag.sblad </div> 
+            <div><img style="transform:scale(0.9)" src="~/ICONS/worker_40px.png" />İşçi sayı: @ViewBag.say</div>
+            <hr />
+            <div><a style="Color:snow;" href="/Sobeler/Index/">Şöbələr</a><span style="margin-right:7px;margin-left:7px"> > </span> Detallar</div>
+        </div>
+    </div>
+    <br />
+    <table style="border-radius:7px" class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col"><h6>ID</h6></th>
+                <th scope="col"><h6>Ad</h6></th>
+                <th scope="col"><h6>Soyad</h6></th>
+                <th scope="col"><h6>Foto</h6></th>
+                <th scope="col"><h6>Satışlar</h6></th>
+                @*<th scope="col"><h6>Yenilə</h6></th>
+        <th scope="col"><h6>Detallar</h6></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <th scope="row">@x.IsciID</th>
+                    <td>@x.IsciAd</td>
+                    <td>@x.IsciSoyad</td>
+                    <td><img style="height:3cm;width:auto" src="@x.IsciFoto" /></td>
+                    <td><a href="/Sobeler/SobeIsciSatis/@x.IsciID"><img src="~/ICONS/buying_55px.png" /></a></td>
+                        @*<td><a href="/Sobeler/SobeGetir/@x.SobeID"><img src="~/ICONS/edit_property_40px.png" /></a></td>
+                        <td><a href="/Sobeler/Detallar/@x.SobeID"><img src="~/ICONS/more_details_55px.png" /></a></td>*@
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

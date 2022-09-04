@@ -1,0 +1,52 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<Mehsullar>
+<div style="box-shadow:0 0 5px black" class="card">
+    <div style="background-color:#A3CB38"  class="card-header">
+        <h3 class="card-title">Məhsulların stok sayı</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 10px">ID</th>
+                    <th>Məhsul</th>
+                    <th>Bar</th>
+                    <th style="width: 40px">Stok</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                <tr>
+                    <td>@x.MehsulID</td>
+                    <td>@x.MehsulAd / @x.Marka</td>
+                    @if (x.Stok < 0)
+                    {
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-danger" style="width: 0"></div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-danger">Bitib</span></td>
+                    }
+                    @if (x.Stok > 0)
+                    {
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-danger" style="width: @x.Stok%"></div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-danger">@x.Stok</span></td>
+                    }
+
+
+                </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

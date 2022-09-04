@@ -1,0 +1,35 @@
+﻿@model MVC_ONLINE_SATIS.Models.Sinifler.Mehsullar
+@{
+    ViewBag.Title = "MehsulElaveEt";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+    <br />
+    <h2>Yeni məhsul</h2>
+    <hr />
+    @using (Html.BeginForm("MehsulElaveEt", "Mehsullar", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.MehsulID)
+        @Html.TextBoxFor(m => m.MehsulAd, new { @class = "form-control", Placeholder = "Məhsul adı" })
+        <br />
+        @Html.TextBoxFor(m => m.Marka, new { @class = "form-control", Placeholder = "Marka" })
+        <br />
+        @Html.TextBoxFor(m => m.Stok, new { @class = "form-control", Placeholder = "Stok" })
+        <br />
+        @Html.TextBoxFor(m => m.AlisQiymet, new { @class = "form-control", Placeholder = "Alış qiyməti" })
+        <br />
+        @Html.TextBoxFor(m => m.SatisQiymet, new { @class = "form-control", Placeholder = "Satış qoyməti" })
+        <br />
+        <div>
+            <span>Aktiv</span>
+            @Html.RadioButtonFor(m => m.Veziyyet, "True")
+            <span>Passiv</span>
+            @Html.RadioButtonFor(m => m.Veziyyet, "False")
+        </div>
+        <br />
+        @Html.TextBoxFor(m => m.MehsulFoto, new { @class = "form-control", Placeholder = "FOTO" })
+        <br />
+        @Html.DropDownListFor(m => m.KateqoriyaID, (List<SelectListItem>)ViewBag.vbktqr, "Kateqoriya seçin", new { @class = "form-control" })
+        <button style="transform:scale(0.5)" class="btn"><img src="~/ICONS/ok_100px.png" /></button>
+    }
+</div>

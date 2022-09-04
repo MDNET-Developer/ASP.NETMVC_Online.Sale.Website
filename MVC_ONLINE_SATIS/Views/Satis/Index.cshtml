@@ -1,0 +1,57 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<SatisHereket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div>
+    <div class="container-fluid">
+        <br />
+        <div style="display:flex">
+            <h2>Satışlar</h2> <a href="/Satis/Satiset/">
+                <img src="~/ICONS/get_cash_55px.png" />
+            </a>
+        </div>
+
+        <hr />
+        <table style="border-radius:7px" class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col"><h6>ID</h6></th>
+                    <th scope="col"><h6>Məhsul</h6></th>
+                    <th scope="col"><h6>Foto</h6></th>
+                    <th scope="col"><h6>Tarix</h6></th>
+                    <th scope="col"><h6>Say</h6></th>
+                    <th scope="col"><h6>Qiymət</h6></th>
+                    <th scope="col"><h6>Ümumi məbləğ</h6></th>
+                    <th scope="col"><h6>İşçi</h6></th>
+                    @*<th scope="col"><h6>Yenilə</h6></th>
+        <th scope="col"><h6>Detallar</h6></th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                <tr>
+                    <th scope="row">@x.SatisID</th>
+
+                    <td>@x.Mehsullars.MehsulAd / @x.Mehsullars.Marka</td>
+                    <td><img style="width:2cm; height:auto" src="@x.Mehsullars.MehsulFoto" /></td>
+                    <td>@x.Tarix</td>
+                    <td>@x.Eded</td>
+                    <td>@x.Qiymet</td>
+                    <td>@x.UmumiXerc</td>
+                    <td>@x.Iscilers.IsciAd @x.Iscilers.IsciSoyad</td>
+
+
+                    @*<td><a href="/Sobeler/SobeGetir/@x.SobeID"><img src="~/ICONS/edit_property_40px.png" /></a></td>
+        <td><a href="/Sobeler/Detallar/@x.SobeID"><img src="~/ICONS/more_details_55px.png" /></a></td>*@
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

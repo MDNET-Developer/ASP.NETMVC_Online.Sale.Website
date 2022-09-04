@@ -1,0 +1,58 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<Faktura>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <br />
+    <div style="display:flex">
+        <h2>Faktura</h2> <a class="btn btn-warning" href="/Faktura/YeniFaktura/">
+            <img src="~/ICONS/add_40px.png" /><img src="~/ICONS/invoice_55px.png" />
+        </a>
+    </div>
+
+    <hr />
+    <table style="border-radius:7px" class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col"><h6>ID</h6></th>
+                <th scope="col"><h6>Seria</h6></th>
+                <th scope="col"><h6>Sıra</h6></th>
+                <th scope="col"><h6>Tarix</h6></th>
+                <th scope="col"><h6>Vergidairəsi</h6></th>
+                <th scope="col"><h6>Saat</h6></th>
+                <th scope="col"><h6>Təslim edən</h6></th>
+                <th scope="col"><h6>Təslim alan</h6></th>
+                <th scope="col"><h6>Yenilə</h6></th>
+                <th scope="col"><h6>Detallar</h6></th>
+                @*<th scope="col"><h6>Yenilə</h6></th>
+        <th scope="col"><h6>Detallar</h6></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+            <tr>
+                <th scope="row">@x.FakturaID</th>
+
+                <td>@x.FakturaSeriyaNo</td>
+                <td>@x.FakturaSiraNo</td>
+                <td>@x.Tarix</td>
+                <td>@x.VergiIdaresi</td>
+                <td>@x.Saat</td>
+                <td>@x.Teslimatci</td>
+                <td>@x.Alici</td>
+                <td>@x.ToplamMebleg ₼</td>
+
+
+                <td><a href="/Faktura/FakturaGetir/@x.FakturaID"><img src="~/ICONS/update_50px.png" /></a></td>
+                <td><a href="/Faktura/FakturaDetallar/@x.FakturaID"><img src="~/ICONS/details_50px.png" /></a></td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

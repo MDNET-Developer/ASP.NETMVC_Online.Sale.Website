@@ -1,0 +1,35 @@
+﻿@model MVC_ONLINE_SATIS.Models.Sinifler.KARQO
+@{
+    ViewBag.Title = "YeniKarqo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Karqo</h2>
+<hr />
+@using (Html.BeginForm("YeniKarqo", "NEWKARQO", FormMethod.Post))
+{
+    <h4>Açıqlama</h4>
+    @Html.TextBoxFor(x => x.Aciqlama, new { @class = "form-control" })
+    <br />
+    <h4>Karqo seria</h4>
+    <input type="text" style="background-color:#d1d8e0;font-size:22px" name="KarqoSERIA" readonly value="@ViewBag.seriakodu" class="form-control" />
+    <br />
+    <h4>Karqo işçi</h4>
+    @Html.TextBoxFor(x => x.KarqoIsciID, new { @class = "form-control" })
+    <a style="transform:scale(0.7);font-size:25px" target="_blank" href="/NEWKARQO/KarqoIscileri" class="btn btn-warning">
+        <img src="~/ICONS/workers_33px.png" />İşçilər
+    </a>
+    <br />
+    <h4>Müştəri</h4>
+    @Html.TextBoxFor(x => x.MusteriID, new { @class = "form-control" })
+    <a style="transform:scale(0.7);font-size:25px" target="_blank" href="/Musteriler/Index" class="btn btn-warning">
+        <img src="~/ICONS/user_folder_30px.png" />Müştərilər
+    </a>
+    <br />
+    <h4>Tarix</h4>
+    <input class="form-control" type="date" name="Tarix" />
+    <br />
+    <button class="btn" style="transform:scale(0.5)">
+        <img src="~/ICONS/ok_100px.png" />
+    </button>
+}

@@ -1,0 +1,30 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<KarqoISCILERI>
+@{
+    ViewBag.Title = "KarqoIscileri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>KarqoIscileri</h2>
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">İşçi</th>
+                <th scope="col">Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.KarqoIsciID</td>
+                    <td>@x.KarqoIsciAD @x.KarqoIsciSoyad</td>
+                    <td><img style="width:2.5cm; height:2.5cm; border-radius:100%" src="@x.KarqoIsciFoto" /></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

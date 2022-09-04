@@ -1,0 +1,41 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<Musteriler>
+<div style="box-shadow:0 0 5px black" class="card">
+    <div class="card-header">
+        <h3 class="card-title">Müştərilər</h3>
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Müştəri</th>
+                    <th>Muştəri şəhər</th>
+                    <th>Mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.MusteriID</td>
+                        <td>@x.MusteriAd @x.MusteriSoyad</td>
+                        <td>@x.MusteriSeher</td>
+                        <td><span class="tag tag-success">@x.MusteriMail</span></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

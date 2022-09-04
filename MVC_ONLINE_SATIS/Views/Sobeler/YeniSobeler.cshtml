@@ -1,0 +1,18 @@
+﻿@model MVC_ONLINE_SATIS.Models.Sinifler.Sobeler
+@{
+    ViewBag.Title = "YeniSobeler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<div class="container-fluid">
+    <h2>Yeni şöbələr</h2>
+    @using (Html.BeginForm("YeniSobeler", "Sobeler", FormMethod.Post))
+    {
+        @Html.HiddenFor(x=>x.SobeID)
+        @Html.TextBoxFor(x => x.SobeAd, new { @class = "form-control" })
+        <Button class="btn" style="transform:scale(0.5)"><img src="~/ICONS/ok_100px.png" /></Button>
+
+    }
+</div>
+
+

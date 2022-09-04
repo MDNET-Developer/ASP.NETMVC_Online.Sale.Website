@@ -1,0 +1,48 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<Isciler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <br />
+    <div style="display:flex">
+        <h2>İşçilər</h2> <a href="/Isciler/YeniIsci/">
+            <img src="~/ICONS/add_40px.png" />
+        </a>
+    </div>
+    
+    <hr />
+    <table style="border-radius:7px" class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col"><h6>ID</h6></th>
+                <th scope="col"><h6>İşçi</h6></th>
+                <th scope="col"><h6>Foto</h6></th>
+                <th scope="col"><h6>Şöbə</h6></th>
+                <th scope="col"><h6>Yenilə</h6></th>
+                <th scope="col"><h6>Detallar</h6></th>
+                @*<th scope="col"><h6>Yenilə</h6></th>
+        <th scope="col"><h6>Detallar</h6></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+            <tr>
+                <th scope="row">@x.IsciID</th>
+                <td>@x.IsciAd @x.IsciSoyad</td>
+                <td><a target="_blank" href="@x.IsciFoto"><img style="height:3cm;width:auto" src="@x.IsciFoto" /></a></td>
+                <td>@x.Sobeler.SobeAd</td>
+                <td><a href="/Isciler/IsciYenile/@x.IsciID"><img src="~/ICONS/update_50px.png" /></a></td>
+                <td><a href="/Iciler/IsciYenile/@x.IsciID"><img src="~/ICONS/details_50px.png" /></a></td>
+    @*<td><a href="/Sobeler/SobeGetir/@x.SobeID"><img src="~/ICONS/edit_property_40px.png" /></a></td>
+        <td><a href="/Sobeler/Detallar/@x.SobeID"><img src="~/ICONS/more_details_55px.png" /></a></td>*@
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

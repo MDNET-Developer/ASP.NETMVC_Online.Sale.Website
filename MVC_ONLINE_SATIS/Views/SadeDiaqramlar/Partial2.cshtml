@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MVC_ONLINE_SATIS.Models.Sinifler.SinifQrup2>
+<div style="box-shadow:0 0 5px black" class="card">
+    <div style="background-color:#fc5c65" class="card-header">
+        <h3 class="card-title">Şöbələr üzrə işçi sayı</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Şöbə</th>
+                    <th>Progress</th>
+                    <th style="width: 40px">Say</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.Sobeler</td>
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-danger" style="width: @x.say%"></div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-danger">@x.say</span></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

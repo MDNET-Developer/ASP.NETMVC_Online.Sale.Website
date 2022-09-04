@@ -1,0 +1,39 @@
+﻿@model MVC_ONLINE_SATIS.Models.Sinifler.Isciler
+@{
+    ViewBag.Title = "YeniIsci";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<div class="container-fluid">
+    <br />
+    <h2>Yeni işçi</h2>
+    <hr />
+    @using (Html.BeginForm("YeniIsci", "Isciler", FormMethod.Post,new {enctype="multipart/form-data" }))
+    {
+        @Html.HiddenFor(x => x.IsciID)
+        @Html.LabelFor(x=>x.IsciAd)
+        @Html.TextBoxFor(x => x.IsciAd, new { @class = "form-control", Placeholder = "İşçi ad" })
+        <br />
+
+        @Html.TextBoxFor(x => x.IsciSoyad, new { @class = "form-control", Placeholder = "İşçi soyad" })
+        <br />
+
+        @*@Html.TextBoxFor(x => x.IsciFoto, new { @class = "form-control", Placeholder = "İşçi Foto" })*@
+        <input type="file"  name="IsciFoto" class="=form-control"/>
+        <br />
+
+        @Html.DropDownListFor(x => x.SobeID, (List<SelectListItem>)ViewBag.sobeler, "Şöbə seçin", new { @class = "form-control" })
+
+        <button id="ok" class="btn">
+            <img src="~/ICONS/update_50px.png" />
+        </button>
+
+        <script>
+            $('#ok').click(function () {
+                swal("Yadda saxlanıldı!", "You clicked the button!", "success");
+            })
+
+</script>
+    }
+</div>

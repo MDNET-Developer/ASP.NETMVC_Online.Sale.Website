@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "YeniDetal";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>YeniDetal</h2>
+@ViewBag.seria
+@using (Html.BeginForm("YeniDetal", "NEWKARQO", FormMethod.Post))
+{
+    <h4>Seria</h4>
+    <input type="text" name="KarqoSERIA" value="@ViewBag.seria" required="" class="form-control" />
+
+    <br />
+    <h4>Hərərkət</h4>
+    <fieldset>
+        <select id="MovieType" name="Hereket"  class="form-control">
+
+            <option>Sifarişiniz qəbul olundu</option>
+
+
+
+            <option>Sifarişiniz yola çıxdı</option>
+            <option>Sifarişiniz çeşidlənmə mərkəzindədir</option>
+            <option>Sifarişiniz təyinat məntəqəsindədir</option>
+
+            <option>Sifarişiniz təhvil verildi</option>
+
+        </select>
+
+        <p><input type="submit" value="Submit" /> </p>
+
+    </fieldset>
+    <br />
+    <h4>Tarix</h4>
+    <input type="date" required="" name="Tarix" />
+
+    <button style="transform:scale(0.7)" class="btn">
+        <img src="~/ICONS/ok_100px.png" />
+    </button>
+
+}

@@ -1,0 +1,59 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<SatisHereket>
+@{
+    ViewBag.Title = "SobeIsciSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <br />
+    <h2>Satışlar</h2>
+    <hr />
+    <div style="background-color:#383c44;color:snow;border-radius:7px">
+        <div style="padding:10px;font-size:18.5px">
+
+            <div><img src="~/ICONS/worker_40px.png" /> İşçi: @ViewBag.worker</div>
+            <div><img style="transform:scale(0.9)" src="~/ICONS/shopping_cart_40px.png" />Satış sayı: @ViewBag.say</div>
+            <hr />
+            <div><a style="Color:snow;" href="/Sobeler/Index/">Şöbələr</a><span style="margin-right:7px;margin-left:7px"> > </span>Detallar<span style="margin-right:7px;margin-left:7px"> > </span>Satışlar</div>
+        </div>
+    </div>
+    <br />
+    <table style="border-radius:7px" class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col"><h6>ID</h6></th>
+                <th scope="col"><h6>Müştəri</h6></th>
+                <th scope="col"><h6>Məhsul</h6></th>
+                <th scope="col"><h6>Foto</h6></th>
+                <th scope="col"><h6>Tarix</h6></th>
+                <th scope="col"><h6>Məhsul sayı</h6></th>
+                <th scope="col"><h6>Məhsul qiyməti</h6></th>
+                <th scope="col"><h6>Ümumi məhsul qiyməti</h6></th>
+                @*<th scope="col"><h6>Yenilə</h6></th>
+        <th scope="col"><h6>Detallar</h6></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+            <tr>
+                <th>@x.SatisID</th>
+                <td>@x.Musterilers.MusteriAd @x.Musterilers.MusteriSoyad</td>
+                <td>@x.Mehsullars.MehsulAd  /  @x.Mehsullars.Marka</td>
+                <th><img style="height:2cm;width:auto" src="@x.Mehsullars.MehsulFoto" /></th>
+                <th>@x.Tarix</th>
+                <td>@x.Eded</td>
+                <td>@x.Qiymet</td>
+                <td>@x.UmumiXerc</td>
+
+
+                @*<td><a href="/Sobeler/SobeGetir/@x.SobeID"><img src="~/ICONS/edit_property_40px.png" /></a></td>
+        <td><a href="/Sobeler/Detallar/@x.SobeID"><img src="~/ICONS/more_details_55px.png" /></a></td>*@
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

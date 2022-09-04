@@ -1,0 +1,82 @@
+﻿@using MVC_ONLINE_SATIS.Models.Sinifler
+@model List<Karqo_DETALLAR>
+@{
+    ViewBag.Title = "KarqoDetallar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div>
+    <h2>Karqo Detallar</h2>
+    <a href="/NEWKARQO/YeniDetal/">
+        <img src="~/KargoIMAGE/place_marker_70px.png" />
+    </a>
+</div>
+
+<div  style="background-color:#f39c12;border-radius:100%;text-align:center;height:1cm;font-size:22px">
+        Kargo seriası: @ViewBag.seria
+
+    
+</div>
+<hr />
+
+<div style="display:flex">
+    <div>
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="~/KargoIMAGE/gedisat1_50px.png" /></td>
+                    <td><img src="~/KargoIMAGE/down_70px.png" /></td>
+                </tr>
+                <tr>
+                    <td><img src="~/KargoIMAGE/gedisat2_70px.png" /></td>
+                    <td><img src="~/KargoIMAGE/down_70px.png" /></td>
+                </tr>
+                <tr>
+                    <td><img src="~/KargoIMAGE/gedisat3_70px.png" /></td>
+                    <td><img src="~/KargoIMAGE/down_70px.png" /></td>
+                </tr>
+                <tr>
+                    <td><img src="~/KargoIMAGE/Gedisat4_70px.png" /></td>
+                    <td><img src="~/KargoIMAGE/down_70px.png" /></td>
+                </tr>
+                <tr>
+                    <td><img src="~/KargoIMAGE/gedisat5_70px.png" /></td>
+                    <td><img src="~/KargoIMAGE/down_70px.png" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <Div>
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td><strong>@x.Hereket</strong></td>
+                    </tr>
+                    <tr>
+                        <td>@x.Tarix</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </Div>
+</div>
+
+
+
+
+
+
